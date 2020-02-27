@@ -36,17 +36,30 @@ function cadastrarNutricionista () {
         whatsapp: $whatsapp.value    
     }
 
-const configuracaoRequest = {
-    method: 'POST',
-    body: JSON.stringify(dadosEnvio),
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  }
+    if (
+      !dadosEnvio.name || 
+      !dadosEnvio.lastName ||
+      !dadosEnvio.cfn ||
+      !dadosEnvio.email||
+      !dadosEnvio.$password||
+      !dadosEnvio.repeatPassword||
+      !dadosEnvio.cep||
+      !dadosEnvio.neighborhood||
+      !dadosEnvio.street||
+      !dadosEnvio.number||
+      !dadosEnvio.state||
+      !dadosEnvio.city||
+      !dadosEnvio.location||
+      !dadosEnvio.facebook||
+      !dadosEnvio.twitter||
+      !dadosEnvio.whatsapp||
+      ) {
+      alert ("você precisa preencher todos os campos obrigatórios!")
+    } else{
 
-    fetch('http://localhost:3000/nutricionista-criar-conta', configuracaoRequest)
-    console.log(dadosEnvio)
 
-
+  axios
+  .post('http://localhost:3000/nutricionistas', dadosEnvio)
+  .then(({ data }) => console.log(data))
 }
+ }
