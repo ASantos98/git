@@ -41,7 +41,7 @@ function cadastrarNutricionista () {
       !dadosEnvio.lastName ||
       !dadosEnvio.cfn ||
       !dadosEnvio.email||
-      !dadosEnvio.$password||
+      !dadosEnvio.password||
       !dadosEnvio.repeatPassword||
       !dadosEnvio.cep||
       !dadosEnvio.neighborhood||
@@ -52,7 +52,7 @@ function cadastrarNutricionista () {
       !dadosEnvio.location||
       !dadosEnvio.facebook||
       !dadosEnvio.twitter||
-      !dadosEnvio.whatsapp||
+      !dadosEnvio.whatsapp
       ) {
       alert ("você precisa preencher todos os campos obrigatórios!")
     } else{
@@ -60,6 +60,29 @@ function cadastrarNutricionista () {
 
   axios
   .post('http://localhost:3000/nutricionistas', dadosEnvio)
-  .then(({ data }) => console.log(data))
-}
+  .then(() => {
+    $('#salvo-com-sucesso').modal('show')
+})
+  .catch(()=> {
+    $('#erroAoSalvar').modal({
+      backdrop: 'static', 
+      show: true
+    })
+  })
  }
+ }
+
+
+$ ('#preenchaTodososCampos').modal({
+  backdrop: 'static',
+  show: true
+})
+
+return
+}
+
+
+$('#preenchaTodosOsCampos').modal({
+  backdrop: 'static',
+  show: true
+})

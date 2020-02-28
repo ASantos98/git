@@ -64,13 +64,17 @@
           <div class="form-group">
             <label for="password">Senha</label>
             <input type="password" class="form-control" id="password">
+            
           </div>
         </div>
+
+        
 
         <div class="col">
           <div class="form-group">
             <label for="repeatPassword">Repetir senha</label>
-            <input type="password" class="form-control" id="repeatPassword">
+            <input type="password" class="form-control" id="repeatPassword" >
+            <input type="button" value="Validar" onclick="validarSenha()">
           </div>
         </div>
       </div>
@@ -86,7 +90,7 @@
         <div class="col">
           <div class="form-group">
             <label for="cep">CEP:</label>
-            <input type="text" class="form-control" id="cep">
+            <input type="text" class="form-control" id="cep" onblur="validaCep" required><button>Buscar CEP</button></input>
           </div>
         </div>
 
@@ -217,12 +221,58 @@
     </form>
   </div>
 
+  <!-- Modal -->
+<div class="modal fade" id="salvo-com-sucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Você foi cadastrado!</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="erroAoSalvar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upss! Algo de errado não está certo, tente novamente!</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"></button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<form class="pure-form">
+  
+
+
+<div class="preenchaTodosOsCampos" id="preenchaTodosOsCampos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>>
+  <div class="modal-dialog" role="document">
+
   
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-  <script src="js/cadastro.js"></script>
+  <!-- <script src="js/cadastro.js"></script> -->
+
+  <script src="js/validar-senha.js"></script>
+  
+
+  
+  
 </body>
 </html>
